@@ -1,0 +1,34 @@
+name: redesk
+author: Jakub Duras <jakub@duras.me>
+description: Reimagine your standing desk - smart standing desk controller upgrade.
+arch: esp32
+version: 0.1.0
+manifest_version: 2017-05-18
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+config_schema:
+  - ["bt.dev_name", "ReDesk"]
+
+tags:
+  - js
+  - bt
+  - bluetooth
+
+filesystem:
+  - fs
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/bt-common
+  - origin: https://github.com/mongoose-os-libs/mjs
+
+conds:
+  # It's not that we can't work with multicore
+  # but we cannot afford it because of space (32K).
+  - when: mos.platform == "esp32"
+    apply:
+      build_vars:
+        ESP_IDF_SDKCONFIG_OPTS: >
+          ${build_vars.ESP_IDF_SDKCONFIG_OPTS}
+          CONFIG_FREERTOS_UNICORE=y
