@@ -1,8 +1,10 @@
 # ReDesk - Reimagine your standing desk
 
 Standing desk controller upgrade to make your dumb standing desk bright.
+Works by replacing the handset (buttons) that it then simulates.
+Still in early stages.
 
-HW part uses ESP32 with [Mongoose OS](https://mongoose-os.com/). Both mobile and HW is written in JS!
+HW part uses ESP32 with [Mongoose OS](https://mongoose-os.com/). Both mobile and HW is written in JS-like languages ([Dart](https://dart.dev/) and [mJS](https://github.com/cesanta/mjs))!
 
 ## Building & Running SW App
 
